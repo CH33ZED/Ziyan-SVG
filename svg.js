@@ -24,21 +24,21 @@ var draw = function(event){
 	          f = 1;
 	       }
 	       rid = window.requestAnimationFrame( draw );
-	    }
+}
 
 var dvder = function(event){
-               var h = 0;
+    var h = 0;
     var i = 0;
-    var j = 0;
-    var k -0;
+    var j = 200;
+    var k = 60;
                var dver = function(event){
                     clear();
                     var n = document.createElementNS("http://www.w3.org/2000/svg","image");	
-	            n.setAttribute("xlink:href", "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSgD--F0M0BAMmp6ywaPT1JE-YfKQjiQCNC0LvwDh3MEt3oTo6-BuqRmw" );
-	            n.setAttribute("x", h);
-	            n.setAttribute("y",i);
-	            n.setAttribute("height","50px");
-		    n.setAttribute("width","50px");
+	            n.setAttribute("href", "http://images.clipartbro.com/174/dvd-logo-images-174410.png" );
+	            n.setAttribute("x", j);
+	            n.setAttribute("y", k);
+	            n.setAttribute("height","100");
+		    n.setAttribute("width","100");
 	            a.appendChild(n);
                     if(h == 0){
                         j++;
@@ -56,7 +56,7 @@ var dvder = function(event){
                          j++;
                          h=0;
                     }
-                    if(j == 400 && h == 0){
+                    if(j + 100 == 2 * c && h == 0){
                          j--;
                          h=1;
                     }
@@ -64,20 +64,24 @@ var dvder = function(event){
                          k++;
                          i=0;
                     }
-                    if(k == 250 && i == 0){
+                    if(k + 100 == 2 * d && i == 0){
                          k--;
                          i=1;
                     }
                     rid = window.requestAnimationFrame( dver );
                }
+     dver();
+}
 
 var clear = function(event){
     while(a.hasChildNodes()){
 	a.removeChild(a.childNodes[0]);
-	window.cancelAnimationFrame(rid);
+        window.cancelAnimationFrame(rid);
     }
 }
+
 q.addEventListener('click', draw);
+t.addEventListener('click', dvder);
 r.addEventListener('click', clear);
             
  
